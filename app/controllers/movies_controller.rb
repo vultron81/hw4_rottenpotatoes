@@ -33,6 +33,10 @@ class MoviesController < ApplicationController
   def new
     # default: render 'new' template
   end
+  
+  def find_similiar
+    @movies = Movie.find_all_by_director(params[:director])
+  end
 
   def create
     @movie = Movie.create!(params[:movie])

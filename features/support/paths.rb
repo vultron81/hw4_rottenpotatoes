@@ -20,6 +20,8 @@ module NavigationHelpers
     
     when /^the edit page for "([^"]*)"$/
       "/movies/#{Movie.find_by_title($1).id}/edit"
+    when /^the Similar Movies page for "([^"]*)"$/
+      "/movies/find_similiar/#{Movie.find_by_title($1).director.gsub(/ /, '%20')}"
       
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
