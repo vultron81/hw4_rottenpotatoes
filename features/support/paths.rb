@@ -15,9 +15,10 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/movies'
+    when /the RottenPotatoes home page/
+      '/movies'
     when /^the details page for "([^"]*)"$/ 
-      "/movies/#{Movie.find_by_title($1).id}"
-    
+      "/movies/#{Movie.find_by_title($1).id}"  
     when /^the edit page for "([^"]*)"$/
       "/movies/#{Movie.find_by_title($1).id}/edit"
     when /^the Similar Movies page for "([^"]*)"$/

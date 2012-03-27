@@ -37,11 +37,12 @@ class MoviesController < ApplicationController
   def find_similiar_director
     search_movie = Movie.find_by_id(params[:id])
     @director = search_movie.director
-    if(@director == "")
+    if(@director == "" or @director == nil)
       flash[:notice] = "'#{search_movie.title}' has no director info"
       redirect_to movies_path
+    else
+      @movies = Movie.find_similiar_director(params[:id])
     end
-    @movies = Movie.find_similiar_director(params[:id])
   end
 
   def create
